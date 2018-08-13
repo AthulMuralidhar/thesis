@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Oscillons}
+\author{Athul Muralidhar}
+
+\maketitle
+
+\section{Introduction}
+\par We start by examining the models described by Amin et al\cite{amin} where they discuss flat top oscillon solutions which are spatially localised and are long lived in time. With the intuitive reasoning from Sfakianakis\cite{evan}. We begin by understanding oscillons in 1+1D, i.e one spatial and one time dimension.
+\subsection{Oscillon model in 1+1D}
+We define the lagrangian density for a scalar field, in analogous to ref\cite{evan}
+\begin{equation}
+\mathcal{L} = \frac{1}{2}((\partial_{t}\phi)^{2}-(\partial_{x}\phi)^{2}) - V(\phi)
+\end{equation}
+with $$V=\frac{1}{2} \phi^{2}-\frac{1}{4}\phi^{4}+\frac{\Lambda}{6\epsilon^{2}}\phi^{6}$$
+\par the $\epsilon$ parameter is a small (constant) number which we will encounter later. Here it just means that the strength of the $\phi^{6}$ term is somehow dependant on the ratio between the $\Lambda$ parameter and the $\epsilon$ parameter. The $\Lambda$ parameter is proportional to the sixth order coupling strength, which is usually denoted by $g$. The equation of motion for the field becomes:
+\begin{equation}
+\frac{d^{2}\phi}{dt^{2}} - \frac{d^{2}\phi}{dx^{2}} + \phi - \phi^{3} + \frac{\Lambda}{\epsilon}\phi^{5} = 0
+\end{equation}
+with the change of variables from t to $\tau$ given by $t = \epsilon^{2}\tau$ and from x to $\rho$ given by $x = \epsilon \rho$ and also noting that the oscillons are oscillating only in time and are localized in space, we can write eqn(2) as:
+\begin{equation}
+\frac{\partial}{\partial t} \left(\frac{\partial \phi}{\partial t}\right) = \left(\frac{\partial}{\partial t}+\frac{\partial}{\partial \tau}\frac{\partial \tau}{\partial t}\right)\left(\frac{\partial \phi}{\partial t} + \frac{\partial \phi}{\partial \tau} \epsilon^{2}\right) \\
+=\frac{\partial^{2} \phi}{\partial t^{2}} + 2\epsilon^{2} \frac{\partial^{2} \phi}{\partial \tau \partial t} + \frac{\partial^{2} \phi}{\partial \tau^{2}} \epsilon^{4}
+\end{equation}
+with these the equation of motion becomes:
+\begin{equation}
+\frac{\partial^{2}\phi}{\partial t^{2}} + 2\epsilon^{2}\frac{\partial^{2} \phi}{\partial \tau \partial t} + \epsilon^{4} \frac{\partial^{2}\phi}{\partial \tau^{2}} - \epsilon^{2}\frac{\partial^{2}}{\partial \rho^{2}} + \phi -\epsilon^{2} \phi^{3} + \Lambda \epsilon^{2} \phi^{5}
+\end{equation}
+to this equation, we add the most general solution in orders  of $\epsilon$ of the form:
+\begin{equation}
+\phi = \phi_{0} + \epsilon\phi_{1} + \epsilon^{2}\phi_{2} + \epsilon^{3}\phi_{3} + \dotsc
+\end{equation}
+we get the corresponding equations of motion as:
+
+\begin{equation}
+\begin{split}
+\frac{\partial^{2}\phi_{0}}{\partial t^{2}} + \epsilon \frac{\partial^{2}\phi_{1}}{\partial t^{2}} + \epsilon^{2}\frac{\partial^{2}\phi_{2}}{\partial t^{2}} + 2 \epsilon^{2} \frac{\partial^{2}\phi_{0}}{\partial \tau \partial t} - \epsilon^{2} \frac{\partial^{2}\phi_{0}}{\partial \rho^{2}} +\phi_{0} + \epsilon \phi_{1} + \epsilon^{2} \phi_{2} + \Lambda \epsilon^{2}\phi_{0}^{5}+ \mathcal{O}(\epsilon^{3})  = 0
+\end{split}
+\end{equation}
+counting in powers of $\epsilon$ we have for $\mathcal{O}(1)$:
+\begin{equation}
+\frac{\partial^{2}\phi_{0}}{\partial t^{2}} + \phi_{0} = 0
+\end{equation}
+at $\mathcal{O}(\epsilon)$, we have:
+\begin{equation}
+\frac{\partial^{2}\phi_{1}}{\partial t^{2}} + \phi_{1} = 0
+\end{equation}
+for $\mathcal{O}(\epsilon)$, we then get:
+\begin{equation}
+\frac{\partial^{2}\phi_{2}}{\partial t^{2}}  + 2\frac{\partial^{2}\phi_{0}}{\partial t \partial \tau} - \frac{\partial^{2}\phi_{0}}{\partial \rho^{2}} + \phi_{2} - \phi_{0}^{3} + \Lambda \phi_{0}^{5} = 0
+\end{equation}
+The general solution for $\phi_{0}$ from eqn(7) is of the form:
+\begin{equation}
+\phi_{0} = \frac{1}{2}(Ae^{-it}+A^{*}e^{it})
+\end{equation}
+If we substitute this into eqn(9) and taking only the decaying mode solutions, we get:
+\begin{equation}
+\frac{A_{\rho \rho}}{2} + i A_{\tau}  + \frac{3}{8} |A|^{2}A = 0
+\end{equation}
+and with the ansatz $A = a(\rho)e^{i\tau / 2}$ we get:
+\begin{equation}
+a_{\rho \rho} - a + \frac{3}{4}a^{3} = 0
+\end{equation}
+Looking at the tail end of the above equation, we obtain the required boundary conditions:
+\begin{equation}
+\frac{d^{2}a}{d\rho^{2}} - a =0 \;\;\; for \rho>>0, a<<0 \\
+\end{equation}
+the general solution for $a$ then is: 
+$$a = C_{1}e^{\rho} + C_{2}e^{-\rho}$$
+ignoring the growing mode, if we take $$\rho \to \infty , \implies C_{2} = 1$$
+we get the condition:
+$$\frac{a_{\rho}}{a}=-1 \implies (a_{\rho})_{\rho = \infty} = -a$$ 
+if we assume that the trailing end of the envelope is an arbritrary constant $\kappa$ then: $$ a = \kappa \implies a_{\rho} = -\kappa$$
+evaluating $a$ at $\rho =0$ then we are left with: $$\rho = 0, a_{\rho} = 0$$
+We can now use these conditions to break down second order ODE into a first order ODE by:
+\begin{equation}
+\frac{da}{d\rho} = b , \;\;\;
+\frac{db}{d\rho} = a - \frac{3}{4}a^{3}
+\end{equation}
+with the initial conditions:
+$$b(0)=0, \;\;\; b(\infty) = -\kappa$$
+\section{Computational details}
+Continuing from the last section, observing the eqn(14) we see that this can be solved numerically by using various computational algorithms. One of the standard ways to solve non-stiff problems is to use the Runge-Kutta\cite{num-chapra}\cite{num-recepies} method for solving ODEs. 
+\subsection{The Runge-Kutta Method}
+Asumming previous knowledge of the Euler method for solving ODEs, we naturally extend to the 
+Runge-Kutta (RK) methods which, achieve the accuracy of a Taylor series approach without re-
+quiring the calculation of higher derivatives. Inherently, the RK method exists with many variations exist and can be generalized into:
+\begin{equation}
+y_{i+1} = y_{i} + \phi(x_{i}, y_{i}, h)h
+\end{equation}
+where $\phi$ is the increment function, which can be interpreted as a representative slope over the interval. The increment function can be written in general as:
+$$
+\phi = a_{1}k_{1} + a_{2}k_{2} + · · · + a_{n}k_{n}
+$$
+where the a’s are constants and the $k$’s are
+\begin{multline}
+\\
+k_{1} = f(x_{i}, y_{i}) \\ 
+k_{2} = f(x_{i} + p_{1}h, y_{i} + q_{11}k_{1}h) \\
+k_{3} = f(x_{i} + p_{2}h, y_{i} + q_{21}k_{1} h + q_{22}k_{2}h) \\
+. \\
+. \\
+. \\
+k_{n} = f(x_{i} + p_{n−1}h, y_{i} + q_{n−1,1}k_{1}h + q_{n−1,2}k_{2}h + · · · + q_{n−1,n−1}k_{n−1}h) \\
+\end{multline}
+
+where the $p$’s and $q$’s are constants. The recurrence of the $k$'s in subsequent steps makes the RK method exceptionally efficient for computer calculations. Once the $n$ is fixed, the values of the constants are evaluated by setting eqn(15.) equal to terms in a Taylor series expansion. The local truncation error is $\mathcal{O}(h^{3})$ and the global error is $\mathcal{O}(h^{2})$. For our purposes, we will be using RK- $4^{th}$ order, the global truncation error is then $\mathcal{O}(h^{4})$.
+\begin{thebibliography}{1}
+\bibitem{amin} Mustafa A. Amin and David Shirokoff, {\em Flat-top oscillons in an expanding universe.}, 2010.
+\bibitem{evan} Evangelos I. Sfakianakis, {\em Analysis of Oscillons in the SU (2) Gauged Higgs Model}, 2012
+\bibitem{num-chapra}Steven C. Chapra, Raymond P. Canale, {\em Numerical Methods for Engineers}, Sixth Edition
+\bibitem{num-recepies}William H. Press, Saul A. Teukolsky, William T. Vetterling, Brian P. Flannery, {\em Numerical Recipes in C}, Second Edition
+\end{thebibliography}
+\end{document}
